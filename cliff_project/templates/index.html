@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benefits Cliff | Louisiana</title>
-    <link rel=stylesheet href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
 <header>
@@ -28,6 +28,11 @@
         <p>
             <input id="button" type="submit" value="Check My Risk">
         </p>
+        {% if result %}
+        <div id="status">{{ result|safe }}</div>
+        {% else %}
+        <div id="status"></div>
+        {% endif %}
         </div>
     </form>
 <footer>
