@@ -1,58 +1,48 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, session
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates", static_folder="static")
+app.config['SECRET_KEY'] = 'dev-secret-key'
 
 
-
-@app.route('/')
+@app.route('/', methods=['GET'])
 def home():
-    return render_template('index.html')
-
+    result = session.pop('result', None)
+    return render_template('index.html', result=result)
 
 
 @app.route('/', methods=['POST'])
-def check_risk():
-    # 1. GET DATA FROM THE FORM
+def submit():
     try:
         user_income = float(request.form.get('income'))
         raise_amount = float(request.form.get('raise'))
     except (ValueError, TypeError):
-        return "Error: Please enter valid numbers."
+        session['result'] = '<p>Error: Please enter valid numbers.</p>'
+        return redirect(url_for('home'))
 
-    # 2. DEFINE THE LIMITS
     snap_limit = 1696
     medicaid_limit = 1800
-
-    # 3. CALCULATE FUTURE STATE
     new_income = user_income + raise_amount
 
-    # SNAP
-
     if new_income < snap_limit:
-        cliff_value = 'SAFE'
+        snap_status = 'SAFE'
     elif user_income < snap_limit <= new_income:
-        cliff_value = 'UNSAFE'
+        snap_status = 'UNSAFE'
     else:
-        cliff_value = 'Already above income limit'
-
-    # MEDICAID
+        snap_status = 'Already above income limit'
 
     if new_income < medicaid_limit:
-        cliff_valueB = 'SAFE'
+        medicaid_status = 'SAFE'
     elif user_income < medicaid_limit <= new_income:
-        cliff_valueB = 'UNSAFE'
+        medicaid_status = 'UNSAFE'
     else:
-        cliff_valueB = 'Already above income limit'
-    
+        medicaid_status = 'Already above income limit'
 
-    result_message = ""  
-
-   
-    result_message = f"SNAP Status: {cliff_value} <br> Medicaid Status: {cliff_valueB}"
-    
-    
-    return f"<h1>{result_message}</h1><br><a href='/'>Check Again</a>"
+    session['result'] = (
+        f'<div>SNAP Status: {snap_status}</div>'
+        f'<div>Medicaid Status: {medicaid_status}</div>'
+    )
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
