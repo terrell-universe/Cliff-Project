@@ -11,7 +11,6 @@ The calculations within this tool are based on the eligibility thresholds provid
 
 ### 3. AI-Augmented Development (Technical Disclosure)
 In alignment with modern engineering standards, this project utilized AI-assisted development to architect the initial logic engine. 
-* **Validation:** All AI-generated formulas and SQL schemas were manually audited against official Louisiana Revised Statutes (L.R.S.) to ensure accuracy.
 
 ### 4. Disclaimer
-*This tool is for informational purposes only and is not an official determination of benefits. Residents should always verify their status through [CAFÉ Louisiana](https://sso.dcfs.la.gov/).*
+*This tool is for informational purposes only and is not an official determination of benefits. Residents should always verify their status through [LA Department of Health](https://ldh.la.gov/).*
