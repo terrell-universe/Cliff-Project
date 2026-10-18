@@ -3,35 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benefits Cliff | Louisiana</title>
-    <link rel=stylesheet href="styles.css">
+    <title>Louisiana Cliff</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
 <header>
-    <h1>Louisiana's Benefits Cliff</h1>
-    <p>Determine if an income increase could affect your ability to maintain SNAP/Medicaid benefits.</p>
+    <h1>Louisiana Benefits Cliff</h1>
+    <h3>Determine if a raise would affect your ability to maintain SNAP/Medicaid assistance.</h3>
 </header>
+<body>
     <form method="POST">
-        <div>
         <p>
             <label for="income">Current Monthly Income:</label>
             <input type="number" step="0.01" name="income" id="income" placeholder="1500" required>
         </p>
-        </div>
-        <div>
         <p>
-            <label for="raise">Additional Income per Month:</label>
+            <label for="raise">Proposed Raise Amount per Month:</label>
             <input type="number" step="0.01" name="raise" id="raise" placeholder="Enter 0 if None" required>
         </p>
-        </div>
-        <div>
         <p>
-            <input id="button" type="submit" value="Check My Risk">
+            <input type="submit" value="Check My Risk">
         </p>
-        </div>
     </form>
-<footer>
-    <p><strong>Disclaimer:</strong> This tool is for informational purposes only and is not an official determination of benefits. Residents should always verify their status through <a href="https://www.dcfs.louisiana.gov/" target="_blank">CAFÉ Louisiana</a>.</p>
-</footer>
 </body>
+<footer>
+    <p><strong>Disclaimer:</strong> This tool is for informational purposes only and is not an official determination of benefits. Residents should always verify their status through <a href='https://www.dcfs.louisiana.gov/' target="_blank">CAFÉ Louisiana</a>.</p>
+</footer>
 </html>
