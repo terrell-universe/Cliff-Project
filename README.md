@@ -1,4 +1,4 @@
-# Project: The Louisiana Benefits Cliff Tracker (The "Cliff Project")
+# Project: The Louisiana Benefits Cliff Tracker
 
 ### 1. Purpose and Authority
 This application is an independent tool designed to assist Louisiana residents in navigating the "Benefits Cliff." It provides a data-driven projection of how changes in household income affect eligibility for state-administered programs, including SNAP and Medicaid. 
