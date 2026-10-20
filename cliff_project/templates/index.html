@@ -33,8 +33,16 @@
     const form = document.getElementById('risk-form');
     const status = document.getElementById('status');
 
+    function showStatusContent(html) {
+        status.innerHTML = html;
+        requestAnimationFrame(() => {
+            status.classList.add('visible');
+        });
+    }
+
     form.addEventListener('submit', async function (event) {
         event.preventDefault();
+        status.classList.remove('visible');
 
         const formData = new FormData(form);
         const response = await fetch('/', {
@@ -48,7 +56,7 @@
         const newStatus = doc.querySelector('#status');
 
         if (newStatus) {
-            status.innerHTML = newStatus.innerHTML;
+            showStatusContent(newStatus.innerHTML);
         }
     });
 </script>

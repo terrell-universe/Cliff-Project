@@ -145,6 +145,14 @@ header p {
     color: #1f1f1f;
     font-weight: 700;
     line-height: 1.4;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#status.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 footer {
     position: fixed;

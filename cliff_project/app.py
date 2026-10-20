@@ -22,14 +22,14 @@ def home():
         if new_income < snap_limit:
             snap_status = 'SAFE'
         elif user_income < snap_limit <= new_income:
-            snap_status = 'UNSAFE'
+            snap_status = 'AT RISK'
         else:
             snap_status = 'Already above income limit'
 
         if new_income < medicaid_limit:
             medicaid_status = 'SAFE'
         elif user_income < medicaid_limit <= new_income:
-            medicaid_status = 'UNSAFE'
+            medicaid_status = 'AT RISK'
         else:
             medicaid_status = 'Already above income limit'
 
