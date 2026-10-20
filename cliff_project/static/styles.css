@@ -102,8 +102,7 @@ header p {
     margin: 0;
     padding: 0 1rem 1rem;
     font-size: 1.25rem;
-    display: flex;
-    justify-content: center;
+    display: block;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: azure;
@@ -111,6 +110,11 @@ header p {
     font-weight: bold;
     text-shadow: 1px 1px 10px black;
     box-sizing: border-box;
+}
+
+header p span {
+    display: block;
+    margin-top: 0.2rem;
 }
 
 #button {
